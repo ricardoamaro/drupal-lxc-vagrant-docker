@@ -25,7 +25,7 @@ cd ~/drupal-lxc-vagrant-docker
 ### Install & Deploy
 
 Install latest Vagrant from:
-http://downloads.vagrantup.com/tags/v1.2.7 or later
+http://downloads.vagrantup.com/tags/v1.2.7 or later.
 
 ```
 sudo apt-get install lxc redir
@@ -42,12 +42,11 @@ your /etc/hosts file should have something like:
 ```
 
 ### Develop on Drupal
-Access Drupal on http://drupal
-Access Phpmyadmin on http://phpmyadmin/
-Access drupal files on /var/lib/lxc/{container name}/rootfs/var/www/
-Access XHProf logs at http://xhprof
-
-Mysql root password: puppetdrupal
+* Access Drupal on http://drupal
+* Access Phpmyadmin on http://phpmyadmin/
+* Access drupal files on /var/lib/lxc/{container name}/rootfs/var/www/
+* Access XHProf logs at http://xhprof
+* Mysql root password: puppetdrupal
 
 #### Stop lxc container with:
 ```
@@ -74,10 +73,7 @@ docker run -i -t -p :80 DEV:drupal /bin/bash
 
 ### Known Issues
 * Upstart is neutered due to [this issue][docker_upstart_issue].
-
-
-#### Warning
-This is still in development and ports shouldn't be open to the outside world
+* Warning: This is still in development and ports shouldn't be open to the outside world
 
 ## Development
 Feel free to fork and contribute to this code. :)
