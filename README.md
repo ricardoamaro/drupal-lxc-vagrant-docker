@@ -27,17 +27,19 @@ cd ~/drupal-lxc-vagrant-docker
 Install latest Vagrant from:
 http://downloads.vagrantup.com/tags/v1.2.7 or later.
 
+
 ```
+sudo dpkg -i vagrant_1.2.7_x86_64.deb
 sudo apt-get install lxc redir
 sudo vagrant plugin install vagrant-lxc
-sudo vagrant up --provider=lxc drupal
+sudo vagrant up --provider=lxc 
 sudo lxc-ls --fancy
 ```
 
 ### Configue Networking
 ```
 # redirect port 80 to the host
-sudo redir --lport=80 --cport=80 --caddr=$(lxc-list | grep drupal-lxc | awk '{print $3}') &
+sudo redir --lport=80 --cport=80 --caddr=$(lxc-ls --fancy| grep drupal-lxc | awk '{print $3}') &
 ```
 your /etc/hosts file should have a line like this:
 ```
@@ -53,7 +55,8 @@ your /etc/hosts file should have a line like this:
 
 #### Stop lxc container with:
 ```
-~/drupal-lxc-vagrant-docker# vagrant stop
+~/drupal-lxc-vagrant-docker# vagrant halt
+~/drupal-lxc-vagrant-docker# vagrant up --no-provision
 ```
 
 #### Destroy lxc container with:
@@ -66,13 +69,21 @@ your /etc/hosts file should have a line like this:
 
 ### Import container to docker:
 ```
-tar -C /var/lib/lxc/{container name}/rootfs/ -c . | docker import - DEV/drupal
+tar -C /var/lib/lxc/{container name}/rootfs/ -c . | docker import - dev/drupal
 ```
 
 ### Start docker 
 ```
-docker run -i -t -p :80 DEV:drupal /bin/bash
+docker run -i -t -p :80 dev:drupal /bin/bash
 ```
+### docker image
+
+The Docker image has been commited to https://index.docker.io, and can be pulled using: 
+```
+docker pull ricardoamaro/drupal
+```
+
+You can find more images using the [Docker Index][docker_index].
 
 ### Future ideas:
 * Since this a pure devops work twoards actual running production environments,
@@ -89,7 +100,7 @@ that Drupal work with, like:
 * Upstart on Docker is neutered due to [this issue][docker_upstart_issue].
 * Warning: This is still in development and ports shouldn't be open to the outside world
 
-## Development contrib
+## Contributing
 Feel free to fork and contribute to this code. :)
 
 1. Fork the repo
