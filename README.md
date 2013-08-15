@@ -7,7 +7,7 @@ Installing Drupal on lxc containers has never been so easy.
 ## You will get:
 0. Drupal (latest version) 
 1. Nginx
-2. Php 5.3 + php-fpm
+2. Php + php-fpm
 3. Mysql
 4. Phpmyadmin
 5. xhprof
@@ -15,15 +15,9 @@ Installing Drupal on lxc containers has never been so easy.
 7. composer
 
 
-## Mysql root password
-puppetdrupal
-
-## Phpmyadmin will be on:
-http://phpmyadmin
-
 ## Deploy code
 
-git clone {this repo}
+git clone git@github.com:ricardoamaro/drupal-lxc-vagrant-docker.git
 
 ## Install & Run
 
@@ -31,37 +25,62 @@ Install latest Vagrant from:
 http://downloads.vagrantup.com/tags/v1.2.7
 or later
 
+Run
 ```
-apt-get install lxc redir
-vagrant plugin install vagrant-lxc
-vagrant up --provider=lxc
-lxc-ls --fancy
-redir --lport=80 --cport=80 --caddr={listed ip} &
+sudo apt-get install lxc redir
+sudo vagrant plugin install vagrant-lxc
+sudo vagrant up --provider=lxc drupal
+sudo lxc-ls --fancy
+sudo redir --lport=80 --cport=80 --caddr={listed ip} &
 ```
 
 ## Configue Networking
-your /etc/hosts file should have:
-127.0.1.1	workbox phpmyadmin drupal
+your /etc/hosts file should have something like:
+127.0.2.1	drupal phpmyadmin xhprof
 
 
 ## Develop 
 Access Drupal on http://drupal
 Access Phpmyadmin on http://phpmyadmin/
 Access drupal files on /var/lib/lxc/{container name}/rootfs/var/www/
-
+Access XHProf logs at http://xhprof
 
 ## Destroy lxc container with:
 
 
-# Warning
+### Mysql root password
+puppetdrupal
+
+## DOCKER
+
+
+
+### Known Issues
+* Upstart is neutered due to [this issue][docker_upstart_issue].
+
+
+#### Warning
 This is still in development and ports shouldn't be open to the outside world
+
+## Development
 Feel free to fork and contribute to this code. :)
 
+1. Fork the repo
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
 
+## License
+GPL v3
 
-Special thank you to these projects for their awesome code:
+#### Special Thank you
+To these projects for their awesome code:
 https://github.com/fgrehm/vagrant-lxc
 https://github.com/mitchellh/vagrant
 https://github.com/dotcloud/docker
 https://github.com/puphpet/puphpet
-and to all other FreeSoftware used on this repo, including the fabulous http://drupal.org
+and to all other FreeSoftware used on this repo, 
+including the fabulous
+http://drupal.org
+=================
