@@ -15,17 +15,18 @@ Installing Drupal on lxc containers has never been so easy.
 7. composer
 
 
-## Deploy code
+### Deploy code
 
+```
 git clone git@github.com:ricardoamaro/drupal-lxc-vagrant-docker.git
+cd ~/drupal-lxc-vagrant-docker
+```
 
-## Install & Run
+### Install & Deploy
 
 Install latest Vagrant from:
-http://downloads.vagrantup.com/tags/v1.2.7
-or later
+http://downloads.vagrantup.com/tags/v1.2.7 or later
 
-Run
 ```
 sudo apt-get install lxc redir
 sudo vagrant plugin install vagrant-lxc
@@ -34,26 +35,42 @@ sudo lxc-ls --fancy
 sudo redir --lport=80 --cport=80 --caddr={listed ip} &
 ```
 
-## Configue Networking
+### Configue Networking
 your /etc/hosts file should have something like:
+```
 127.0.2.1	drupal phpmyadmin xhprof
+```
 
-
-## Develop 
+### Develop on Drupal
 Access Drupal on http://drupal
 Access Phpmyadmin on http://phpmyadmin/
 Access drupal files on /var/lib/lxc/{container name}/rootfs/var/www/
 Access XHProf logs at http://xhprof
 
-## Destroy lxc container with:
+Mysql root password: puppetdrupal
 
+#### Stop lxc container with:
+```
+~/drupal-lxc-vagrant-docker# vagrant stop
+```
 
-### Mysql root password
-puppetdrupal
+#### Destroy lxc container with:
+```
+~/drupal-lxc-vagrant-docker# vagrant destroy
+~/drupal-lxc-vagrant-docker# killall redir
+```
 
 ## DOCKER
 
+### Import container to docker:
+```
+tar -C /var/lib/lxc/{container name}/rootfs/ -c . | docker import - DEV/drupal
+```
 
+### Start docker 
+```
+docker run -i -t -p :80 DEV:drupal /bin/bash
+```
 
 ### Known Issues
 * Upstart is neutered due to [this issue][docker_upstart_issue].
