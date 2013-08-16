@@ -27,22 +27,23 @@ Installing Drupal on lxc containers has never been faster and easier.
 7. composer
 
 
-### Clone code
 
-```
-git clone git@github.com:ricardoamaro/drupal-lxc-vagrant-docker.git
-cd ~/drupal-lxc-vagrant-docker
-```
 
 ### Install & Deploy
 
 Install latest Vagrant from:
 http://downloads.vagrantup.com/tags/v1.2.7 or later.
 
-
 ```
 sudo dpkg -i vagrant_1.2.7_x86_64.deb
 sudo apt-get install lxc redir
+```
+
+### Clone code
+
+```
+git clone git@github.com:ricardoamaro/drupal-lxc-vagrant-docker.git
+cd ~/drupal-lxc-vagrant-docker
 vagrant plugin install vagrant-lxc
 vagrant up --provider=lxc 
 lxc-ls --fancy
