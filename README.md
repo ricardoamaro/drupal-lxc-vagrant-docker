@@ -10,9 +10,9 @@ which simplifies and improves the process of creating and managing Linux contain
 Vagrant 1.1+ lxc plugin allows it to control and provision Linux Containers as an alternative 
 to the built in (and heavy) Vagrant VirtualBox provider for Linux hosts.
 
-Deploy and develop on Drupal with LXC, Vagrant and Docker.
+Deploy and develop on Drupal with LXC, using Vagrant and/or Docker.
 
-Takes about 2-3 minutes to have a full running Drupal development box.
+Takes about ~2 minutes to have a full running Drupal development box.
 Installing Drupal on lxc containers has never been faster and easier.
 
 
@@ -51,7 +51,7 @@ sudo lxc-ls --fancy
 ### Configue Networking
 ```
 # redirect port 80 to the host
-sudo redir --lport=80 --cport=80 --caddr=$(lxc-ls --fancy| grep drupal-lxc | awk '{print $3}') &
+sudo redir --lport=80 --cport=80 --caddr={container ip} &
 ```
 your /etc/hosts file should have a line like this:
 ```
@@ -90,7 +90,7 @@ docker run -i -t -p :80 dev:drupal /bin/bash
 ```
 ### docker image
 
-The Docker image has been commited to https://index.docker.io, and can be pulled using: 
+An already cooked Docker image has been commited to https://index.docker.io, and can be pulled using: 
 ```
 docker pull ricardoamaro/drupal
 ```
@@ -98,7 +98,7 @@ docker pull ricardoamaro/drupal
 You can find more images using the [Docker Index][docker_index].
 
 ### Future ideas:
-* Since this a pure devops work twoards actual running production environments,
+* Since this a pure devops work towards actual running production environments,
 one of the primary targets is to deploy to the cloud using several hosts to achieve a real hosting structure.
 * Using the shipping container concept of docker it would be great to have the container fill up the several jobs 
 that Drupal work with, like:
@@ -109,8 +109,10 @@ that Drupal work with, like:
 - Load balancers...
 
 ### Known Issues
-* Upstart on Docker is neutered due to [this issue][docker_upstart_issue].
-* Warning: This is still in development and ports shouldn't be open to the outside world
+* Upstart on Docker is broken due to [this issue][docker_upstart_issue], and that's one of the reasons the image is puppetized using vagrant.
+* Warning: This is still in development and ports shouldn't be open to the outside world.
+* The vagrant uses the vagrant pub ssh key, but you can remove that while using `lxc-attach -n {container name}`
+
 
 ## Contributing
 Feel free to fork and contribute to this code. :)
