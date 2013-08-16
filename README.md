@@ -43,9 +43,9 @@ http://downloads.vagrantup.com/tags/v1.2.7 or later.
 ```
 sudo dpkg -i vagrant_1.2.7_x86_64.deb
 sudo apt-get install lxc redir
-sudo vagrant plugin install vagrant-lxc
-sudo vagrant up --provider=lxc 
-sudo lxc-ls --fancy
+vagrant plugin install vagrant-lxc
+vagrant up --provider=lxc 
+lxc-ls --fancy
 ```
 
 ### Configue Networking
