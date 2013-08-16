@@ -1,0 +1,10 @@
+<?php
+// $Id$
+/**
+ * @file
+ * This is an implementation of a full running Drupal install on a Linux container
+ *
+ * See:
+ * @link https://github.com/ricardoamaro/drupal-lxc-vagrant-docker @endlink
+ */
+

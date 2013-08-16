@@ -1,1 +1,5 @@
 name = Vagrant lxc
+description = Deploy and develop on Drupal with Linux containers & Vagrant.
+package = Linux container creator
+core = 7.x
+files[] = README.md
