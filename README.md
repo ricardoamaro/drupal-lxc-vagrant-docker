@@ -27,8 +27,6 @@ Installing Drupal on lxc containers has never been faster and easier.
 7. composer
 
 
-
-
 ### Install
 
 Install latest Vagrant from:
@@ -50,7 +48,7 @@ cd ~/drupal-lxc-vagrant-docker
 ```
 vagrant plugin install vagrant-lxc
 vagrant up --provider=lxc 
-lxc-ls --fancy
+sudo lxc-ls --fancy
 ```
 
 ### Configue Networking
