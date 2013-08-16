@@ -68,7 +68,7 @@ your /etc/hosts file should have a line like this:
 * Access XHProf logs at http://xhprof
 * Mysql root password: puppetdrupal
 
-#### Stop lxc container with:
+#### Stop/start lxc container with:
 ```
 ~/drupal-lxc-vagrant-docker# vagrant halt
 ~/drupal-lxc-vagrant-docker# vagrant up --no-provision
