@@ -1,5 +1,14 @@
 drupal-lxc-vagrant-docker
 =========================
+#### What are these?
+LXC is a lightweight virtualization method that provides operating system-level virtualization 
+optional to an heavy full virtual machine. It relies on the Linux kernel cgroups functionality 
+that became available in version 2.6.24, It provides a virtual environment that has its own process and network space. 
+This option makes the perfect option for deploying several contained Drupal dev environments 
+independent of the distribution.Docker is a solution from dotCloud, 
+which simplifies and improves the process of creating and managing Linux containers.
+Vagrant 1.1+ lxc plugin allows it to control and provision Linux Containers as an alternative 
+to the built in (and heavy) Vagrant VirtualBox provider for Linux hosts.
 
 Deploy and develop on Drupal with LXC, Vagrant and Docker.
 Installing Drupal on lxc containers has never been so easy.
