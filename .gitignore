@@ -2,3 +2,4 @@
 sites/*/settings*.php
 
 .vagrant
+.git

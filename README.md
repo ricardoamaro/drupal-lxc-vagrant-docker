@@ -11,7 +11,10 @@ Vagrant 1.1+ lxc plugin allows it to control and provision Linux Containers as a
 to the built in (and heavy) Vagrant VirtualBox provider for Linux hosts.
 
 Deploy and develop on Drupal with LXC, Vagrant and Docker.
-Installing Drupal on lxc containers has never been so easy.
+
+Takes about 2-3 minutes to have a full running Drupal development box.
+Installing Drupal on lxc containers has never been faster and easier.
+
 
 ## You will get:
 0. Drupal (latest version) 
