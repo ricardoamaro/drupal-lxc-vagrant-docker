@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :inline => "sudo apt-get update; touch /etc/puppet/hiera.yaml"
   config.vm.provision :shell, :inline => 'echo -e "mysql_root_password=puppetdrupal
 controluser_password=puppetdrupal" > /etc/phpmyadmin.facts;'
-  config.vm.provision :shell, :inline => "chmod o+w /vagrant/drupal/sites/default/settings.php /vagrant/drupal/sites/default/files"
+  config.vm.provision :shell, :inline => "chmod og+w /vagrant/drupal/sites/default/settings.php /vagrant/drupal/sites/default/files"
   config.vm.provision :shell, :inline => "mkdir -p /var/www ; cp -anr /vagrant/drupal /var/www/drupal"
 
   config.vm.provision :puppet do |puppet|
