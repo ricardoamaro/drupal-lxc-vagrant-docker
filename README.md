@@ -84,23 +84,24 @@ your /etc/hosts file should have a line like this:
 
 ### Install docker
 ```
+sudo apt-get -y install docker
 curl get.docker.io | sudo sh -x
 ```
 
 ### Import container to docker:
 ```
-tar -C /var/lib/lxc/{container name}/rootfs/ -c . | docker import - dev/drupal
+sudo tar -C /var/lib/lxc/{container name}/rootfs/ -c . | sudo docker import - dev/drupal
 ```
 
 ### Start docker 
 ```
-docker run -i -t -p :80 dev:drupal /bin/bash
+sudo docker run -i -t -p :80 dev/drupal /bin/bash
 ```
 ### docker image
 
 An already cooked Docker image has been commited to https://index.docker.io, and can be pulled using: 
 ```
-docker pull ricardoamaro/drupal
+sudo docker pull ricardoamaro/drupal
 ```
 
 You can find more images using the [Docker Index][docker_index].
