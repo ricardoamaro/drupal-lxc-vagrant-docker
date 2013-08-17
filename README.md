@@ -77,7 +77,7 @@ your /etc/hosts file should have a line like this:
 #### Destroy lxc container with:
 ```
 ~/drupal-lxc-vagrant-docker# vagrant destroy
-~/drupal-lxc-vagrant-docker# killall redir
+~/drupal-lxc-vagrant-docker# sudo killall redir
 ```
 
 ## DOCKER
