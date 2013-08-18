@@ -82,6 +82,8 @@ your /etc/hosts file should have a line like this:
 
 ## DOCKER
 
+Docker will be used to ship our newly created appliance, deploying it to any linux server, anywhere in the world, whitin a container.
+
 ### Install docker
 ```
 sudo apt-get -y install docker
@@ -104,7 +106,10 @@ An already cooked Docker image has been commited to https://index.docker.io, and
 sudo docker pull ricardoamaro/drupal
 ```
 
-You can find more images using the [Docker Index][docker_index].
+*There is also a project to build a simple lamp image with Drupal, using Dockerfile:
+https://github.com/ricardoamaro/docker-drupal
+
+*You can find more images using the [Docker Index][docker_index].
 
 ### Future ideas:
 * Since this a pure devops work towards actual running production environments,
