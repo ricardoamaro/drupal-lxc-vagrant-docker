@@ -142,7 +142,7 @@ Feel free to fork and contribute to this code. :)
 Created and maintained by [Ricardo Amaro][author] (<mail@ricardoamaro.com>)
 
 ## License
-GPL v3
+GPLv2+
 
 #### Special Thank you
 To these projects for their awesome code:
