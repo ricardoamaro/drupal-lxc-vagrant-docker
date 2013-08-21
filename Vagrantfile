@@ -19,12 +19,15 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :inline => "apt-get update; touch /etc/puppet/hiera.yaml"
   config.vm.provision :shell, :inline => 'echo -e "mysql_root_password=puppetdrupal
 controluser_password=puppetdrupal" > /etc/phpmyadmin.facts;'
-  config.vm.provision :shell, :inline => "chmod og+w /vagrant/drupal/sites/default/settings.php /vagrant/drupal/sites/default/files; mkdir -p /var/www ; cp -anr /vagrant/drupal /var/www/drupal"
+
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"
     puppet.module_path = "modules"
     puppet.options = ['--verbose']
   end
+  config.vm.provision :shell, :inline => "[[ ! -f /var/www/sites/default/settings.php ]] && (rm -rf /var/www/ ; cd /var ; drush dl drupal 2>&1 >/dev/null ; mv /var/drupal*/ /var/www/)"
+  config.vm.provision :shell, :inline => "cp -anr /var/www/sites/default/default.settings.php /var/www/sites/default/settings.php;"
+  config.vm.provision :shell, :inline => "chmod a+w /var/www/sites/default ; mkdir /var/www/sites/default/files ; chown -R www-data:www-data /var/www/"
   config.vm.provision :shell, :inline => "apt-get clean; rm -rf /var/www/drupal/.git"
 end

@@ -20,7 +20,8 @@ package { [
     'curl',
     'git-core',
     'mc',
-    'htop'
+    'htop',
+    'drush'
   ]:
   ensure  => 'installed',
 }
