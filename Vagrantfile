@@ -26,8 +26,8 @@ controluser_password=puppetdrupal" > /etc/phpmyadmin.facts;'
     puppet.module_path = "modules"
     puppet.options = ['--verbose']
   end
-  config.vm.provision :shell, :inline => "[[ ! -f /var/www/sites/default/settings.php ]] && (rm -rf /var/www/ ; cd /var ; drush dl drupal 2>&1 >/dev/null ; mv /var/drupal*/ /var/www/)"
-  config.vm.provision :shell, :inline => "cp -anr /var/www/sites/default/default.settings.php /var/www/sites/default/settings.php;"
-  config.vm.provision :shell, :inline => "chmod a+w /var/www/sites/default ; mkdir /var/www/sites/default/files ; chown -R www-data:www-data /var/www/"
+  config.vm.provision :shell, :inline => "[[ ! -f /var/www/drupal/sites/default/settings.php ]] && (cd /var/www ; drush dl -y --drupal-project-rename=drupal 2>&1 >/dev/null )"
+  config.vm.provision :shell, :inline => "cp -anr /var/www/drupal/sites/default/default.settings.php /var/www/drupal/sites/default/settings.php;"
+  config.vm.provision :shell, :inline => "chmod a+w /var/www/drupal/sites/default ; mkdir /var/www/drupal/sites/default/files ; chown -R www-data:www-data /var/www/drupal"
   config.vm.provision :shell, :inline => "apt-get clean; rm -rf /var/www/drupal/.git"
 end
