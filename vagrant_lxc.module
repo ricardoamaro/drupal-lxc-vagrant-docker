@@ -1,5 +1,4 @@
 <?php
-// $Id$
 /**
  * @file
  * This is an implementation of a full running Drupal install on a Linux container
