@@ -74,10 +74,9 @@ your /etc/hosts file should have a line like this:
 ~/drupal-lxc-vagrant-docker# vagrant up --no-provision
 ```
 #### Debug vagrant build if necessary, with:
-...
+```
 ~/drupal-lxc-vagrant-docker# VAGRANT_LOG=debug vagrant up --provider=lxc
-...
-
+```
 #### Destroy lxc container with:
 ```
 ~/drupal-lxc-vagrant-docker# vagrant destroy
