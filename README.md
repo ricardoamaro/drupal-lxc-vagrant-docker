@@ -40,7 +40,7 @@ sudo apt-get install lxc redir
 ### Clone this code
 
 ```
-git clone git@github.com:ricardoamaro/drupal-lxc-vagrant-docker.git
+git clone https://github.com/ricardoamaro/drupal-lxc-vagrant-docker.git
 cd ~/drupal-lxc-vagrant-docker
 ```
 
