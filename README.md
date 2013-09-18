@@ -34,7 +34,7 @@ http://downloads.vagrantup.com/tags/v1.2.7 or later.
 
 ```
 sudo dpkg -i vagrant_1.2.7_x86_64.deb
-sudo apt-get install lxc redir
+sudo apt-get install lxc redir git sudo
 ```
 
 ### Clone this code
