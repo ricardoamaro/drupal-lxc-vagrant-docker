@@ -89,7 +89,7 @@ Docker will be used to ship our newly created appliance, deploying it to any lin
 
 ### Install docker
 ```
-sudo apt-get -y install docker
+sudo apt-get -y install lxc-docker
 curl get.docker.io | sudo sh -x
 ```
 
