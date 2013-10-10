@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "raring"
   #config.vm.box_url = "http://bit.ly/vagrant-lxc-quantal64-2013-07-12"
-  config.vm.box_url = "http://dl.dropbox.com/u/13510779/lxc-raring-amd64-2013-05-08.box"
+  config.vm.box_url = "http://dl.dropbox.com/u/13510779/lxc-raring-amd64-2013-07-12.box"
   
   #config.vm.define :drupal do |drupal_config|
     #drupal_config.vm.forward_port 80, 8080 # lxc-drupal has no support yet
