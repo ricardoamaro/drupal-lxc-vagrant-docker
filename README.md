@@ -30,10 +30,10 @@ Installing Drupal on lxc containers has never been faster and easier.
 ### Install
 
 Install latest Vagrant from:
-http://downloads.vagrantup.com/tags/v1.2.7 or later.
+http://downloads.vagrantup.com/tags/v1.3.5 or later.
 
 ```
-sudo dpkg -i vagrant_1.2.7_x86_64.deb
+sudo dpkg -i vagrant_1.3.5_x86_64.deb
 sudo apt-get install lxc redir git sudo
 ```
 
