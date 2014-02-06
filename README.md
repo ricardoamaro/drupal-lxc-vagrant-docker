@@ -114,6 +114,10 @@ https://github.com/ricardoamaro/docker-drupal
 
 *You can find more images using the [Docker Index][docker_index].
 
+*Information on building your own vagrant-lxc base box:
+http://fabiorehm.com/blog/2013/07/18/crafting-your-own-vagrant-lxc-base-box/
+
+
 ### Future ideas:
 * Since this a pure devops work towards actual running production environments,
 one of the primary targets is to deploy to the cloud using several hosts to achieve a real hosting structure.
