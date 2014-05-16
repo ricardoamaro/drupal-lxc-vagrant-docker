@@ -146,7 +146,7 @@ Feel free to fork and contribute to this code. :)
 
 ## Authors
 
-Created and maintained by [Ricardo Amaro][author] (<mail@ricardoamaro.com>)
+Created and maintained by [Ricardo Amaro][author] (<mail_at_ ricardoamaro.com>)
 
 ## License
 GPLv2+
