@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "quantal64"
+  config.vm.box = "fgrehm-VAGRANTSLASH-trusty64-lxc"
   config.vm.box_url = "https://atlas.hashicorp.com/fgrehm/boxes/trusty64-lxc/versions/1.2.0/providers/lxc.box"
   
   #config.vm.define :drupal do |drupal_config|
@@ -21,7 +21,9 @@ Vagrant.configure("2") do |config|
   
   config.vm.synced_folder "./", "/vagrant", id: "vagrant-root"
 
-  config.vm.provision :shell, :inline => "apt-get update; touch /etc/puppet/hiera.yaml"
+  config.vm.provision :shell, :inline => "apt-get update"
+  config.vm.provision :shell, :inline => "apt-get -y install puppet facter"
+  config.vm.provision :shell, :inline => "touch /etc/puppet/hiera.yaml"
   config.vm.provision :shell, :inline => 'echo -e "mysql_root_password=puppetdrupal
 controluser_password=puppetdrupal" > /etc/phpmyadmin.facts;'
 
